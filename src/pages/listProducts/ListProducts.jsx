@@ -4,7 +4,6 @@ import './ListProducts.css';
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField';
 import { VerticalNavigation, VerticalSection, VerticalItem } from 'react-rainbow-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faCog, faFolderOpen, faBook, faReceipt, faUser, faHatWizard, faGlasses, faBrain, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
