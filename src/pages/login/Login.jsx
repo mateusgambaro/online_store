@@ -59,14 +59,14 @@ function Login () {
           onChange={ (event) => {setPassword(event.target.value); handleDisabled()} }
           />
 
-        {/* <Link
+        <Link
           to="/add"
-        > */}
+        >
          <Button variant="Entrar"
             disabled={ disabled }
             onClick={ () => handleSubmitLogin() }
             >Entrar</Button>
-        {/* </Link> */}
+        </Link>
         </div>
         <div className="login-side">
           <img src={wallet} alt="img-wallet"></img>

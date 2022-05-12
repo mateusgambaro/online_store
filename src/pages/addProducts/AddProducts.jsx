@@ -4,8 +4,11 @@ import './AddProducts.css';
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField';
 
-function AddProducts () {
 
+function AddProducts () {
+    return (
+        <h1>NADA AQUI</h1>
+    )
 }
 
 export default AddProducts;
