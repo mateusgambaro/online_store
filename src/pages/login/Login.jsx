@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import Button from '@mui/material/Button'
@@ -60,7 +60,7 @@ function Login () {
           />
 
         {/* <Link
-          to="/carteira"
+          to="/add"
         > */}
          <Button variant="Entrar"
             disabled={ disabled }
