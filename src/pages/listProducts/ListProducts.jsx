@@ -128,7 +128,7 @@ function ListProducts() {
                             <div className="card">
                                 <i className="fa fa-long-arrow-left"></i>
                                 <div className="image">
-                                    <img src="https://imgur.com/ZpVouSq.png" />
+                                    <img src={book.img} />
 
                                 </div>
                                 <div className="text">
@@ -154,7 +154,7 @@ function ListProducts() {
                 <div className="card">
                     <i className="fa fa-long-arrow-left"></i>
                     <div className="image">
-                        <img src="https://imgur.com/ZpVouSq.png" />
+                        <img src={book.img}  />
 
                     </div>
                     <div className="text">
@@ -179,7 +179,7 @@ function ListProducts() {
                 <div className="card">
                     <i className="fa fa-long-arrow-left"></i>
                     <div className="image">
-                        <img src="https://imgur.com/ZpVouSq.png" />
+                        <img src={book.img}  />
 
                     </div>
                     <div className="text">
@@ -204,7 +204,7 @@ function ListProducts() {
                 <div className="card">
                     <i className="fa fa-long-arrow-left"></i>
                     <div className="image">
-                        <img src="https://imgur.com/ZpVouSq.png" />
+                        <img src={book.img}  />
 
                     </div>
                     <div className="text">
