@@ -16,9 +16,11 @@ function ListProducts() {
     const [selectedItem, setSelectItem] = useState('filosofia')
     const [addcart, setaddcart] = useState(1);
 
-    const AddCart = () => {
+    const AddCart = (   ) => {
         if (addcart < 10) { setaddcart(addcart + 1); }
-    }; const DecBag = () => {
+    }; 
+    
+    const DecBag = () => {
         if (addcart >= 1) {
             setaddcart(addcart - 1);
         }
@@ -28,9 +30,7 @@ function ListProducts() {
     const [books, setBooks] = useState([]);
     const [groups, setGroups] = useState([]);
 
-    console.log('user', users);
-    console.log('book', books);
-    console.log('group', groups);
+   console.log('cart', addcart)
 
 
 
