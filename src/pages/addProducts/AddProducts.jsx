@@ -13,6 +13,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Box from '@mui/material/Box';
+import axios from "axios";
+
 
 
 
@@ -28,7 +30,18 @@ function AddProducts() {
     };
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async (data) => {
+        let dataObj = {
+            name: data.titulo,
+            price: data.preco,
+            description: data.descricao,
+            autor: data.autor,
+            grupo: data.categoria
+        }
+
+        await axios.post('https://online-store-backend-voll.herokuapp.com/insertProducts', dataObj)
+        console.log(data)
+    };
     return (
         <section>
 
@@ -98,14 +111,14 @@ function AddProducts() {
                                     //onChange={ (e) => setName(e.target.value) }
                                     label="Categoria" variant="outlined"
                                     size="large"
-                                    value="1"
+                                    value="17"
                                     onInput={(e) => {
                                         e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 1)
                                     }}
                                     type="number"
                                     fullWidth
                                 >
-                                      1
+                                      17
                                     </TextField>
 
                             </div>
@@ -177,14 +190,14 @@ function AddProducts() {
                                     //onChange={ (e) => setName(e.target.value) }
                                     label="Categoria" variant="outlined"
                                     size="large"
-                                    value="2"
+                                    value="18"
                                     onInput={(e) => {
                                         e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 1)
                                     }}
                                     type="number"
                                     fullWidth
                                 >
-                                      2
+                                      18
                                     </TextField>
 
                             </div>
@@ -255,14 +268,14 @@ function AddProducts() {
                                     //onChange={ (e) => setName(e.target.value) }
                                     label="Categoria" variant="outlined"
                                     size="large"
-                                    value="3"
+                                    value="19"
                                     onInput={(e) => {
                                         e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 1)
                                     }}
                                     type="number"
                                     fullWidth
                                 >
-                                    3
+                                    19
                                     </TextField>
 
                             </div>
@@ -333,14 +346,14 @@ function AddProducts() {
                                     //onChange={ (e) => setName(e.target.value) }
                                     label="Categoria" variant="outlined"
                                     size="large"
-                                    value="4"
+                                    value="20"
                                     onInput={(e) => {
                                         e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 1)
                                     }}
                                     type="number"
                                     fullWidth
                                 >
-                                    4
+                                    20
                                     </TextField>
 
                             </div>

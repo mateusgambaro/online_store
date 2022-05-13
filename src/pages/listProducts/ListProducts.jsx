@@ -66,7 +66,7 @@ function ListProducts() {
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <AppBar position="static">
-                <Toolbar variant="dense">
+                <Toolbar  variant="dense">
                     <Typography variant="h6" color="inherit" component="div">
                         Livros
                     </Typography>
@@ -116,10 +116,9 @@ function ListProducts() {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '100%', height: '100%',
+                width: '90%', height: '100%',
                 position: 'relative',
                 // marginTop: '-15.5%',
-                marginRight: '-20%',
                 overflowX: 'hidden'
             }}>
                 <div className="container">
