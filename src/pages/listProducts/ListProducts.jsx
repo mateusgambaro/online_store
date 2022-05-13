@@ -4,77 +4,232 @@ import './ListProducts.css';
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField';
 import { VerticalNavigation, VerticalSection, VerticalItem } from 'react-rainbow-components';
-import { faClock, faCog, faFolderOpen, faBook, faReceipt, faUser, faHatWizard, faGlasses, faBrain, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faCog, faFolderOpen, faBook, faReceipt, faUser, faHatWizard, faGlasses, faBrain, faUserAstronaut, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from "axios";
 
 
 function ListProducts() {
 
-    const [selectedItem, setSelectItem] = useState('item 5')
+    const [selectedItem, setSelectItem] = useState('filosofia')
+    const [addcart, setaddcart] = useState(1);
+
+    const AddCart = () => {
+        if (addcart < 10) { setaddcart(addcart + 1); }
+    }; const DecBag = () => {
+        if (addcart >= 1) {
+            setaddcart(addcart - 1);
+        }
+    };
+
+    const [users, setUsers] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [groups, setGroups] = useState([]);
+
+    console.log('user', users);
+    console.log('book', books);
+    console.log('group', groups);
+
+
+
+    useEffect(() => {
+        getUsers();
+    }, []);
+
+    const getUsers = async () => {
+        const response = await axios.get('https://online-store-backend-voll.herokuapp.com/getUser');
+        setUsers(response.data);
+        getBooks()
+    }
+
+    const getBooks = async () => {
+        const response = await axios.get('https://online-store-backend-voll.herokuapp.com/getProducts');
+        setBooks(response.data);
+        getGroups()
+    }
+
+    const getGroups = async () => {
+        const response = await axios.get('https://online-store-backend-voll.herokuapp.com/getGroups');
+        setGroups(response.data);
+    }
+
 
     console.log(selectedItem);
 
     const setNewSelectItem = (event, selectedItem) => {
-        setSelectItem( selectedItem )
+        setSelectItem(selectedItem)
     }
 
     return (
 
-        <section>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <AppBar position="static">
                 <Toolbar variant="dense">
                     <Typography variant="h6" color="inherit" component="div">
                         Livros
                     </Typography>
-                <FontAwesomeIcon icon={faUser} style={{display: 'flex', justifyContent: 'flex-end', width: '20px', marginLeft: 'auto'}}/>
+                    <FontAwesomeIcon icon={faMoneyBill} style={{ display: 'flex', justifyContent: 'space-around', width: '20px', marginLeft: 'auto' }} />R$200
+                    <FontAwesomeIcon icon={faUser} style={{ display: 'flex', justifyContent: 'flex-end', width: '20px', marginLeft: 'auto' }} /> &nbsp; Mateus
                 </Toolbar>
             </AppBar>
-            <article style={{ width: '25%', height: '100%' }}>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                width: '25%', height: '100%',
+                marginRight: 'auto'
+            }}>
                 <VerticalNavigation
                     selectedItem={selectedItem}
                     onSelect={setNewSelectItem}
+                    style={{ position: 'fixed' }}
                 >
                     <VerticalSection>
                         <VerticalItem
-                            name="item-1"
-                            label="Folders"
+                            name="filosofia"
+                            label="Filosofia"
                             icon={<FontAwesomeIcon icon={faHatWizard} />}
                         />
                         <VerticalItem
-                            name="item-2"
-                            label="Recents"
+                            name="scifi"
+                            label="Ficção Científica"
                             icon={<FontAwesomeIcon icon={faGlasses} />}
                         />
                         <VerticalItem
-                            name="item-3"
-                            label="Settings"
+                            name="musica"
+                            label="Música"
                             icon={<FontAwesomeIcon icon={faBrain} />}
                         />
                         <VerticalItem
-                            name="item-4"
-                            label="Projects"
+                            name="biografia"
+                            label="Biografia"
                             icon={<FontAwesomeIcon icon={faUserAstronaut} />}
-                        />
-                        <VerticalItem
-                            name="item-5"
-                            label="Reports"
-                            icon={<FontAwesomeIcon icon={faReceipt} />}
                         />
                     </VerticalSection>
                 </VerticalNavigation>
-            </article>
-            <div style={{marginLeft: '25%', width: '100%'}}>
-                <div>
-                <h1>OLA</h1>
+            </div>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '100%', height: '100%',
+                position: 'relative',
+                // marginTop: '-15.5%',
+                marginRight: '-20%',
+                overflowX: 'hidden'
+            }}>
+                <div className="container">
+                    {selectedItem === 'filosofia' ? books
+                        .filter((books) => books.grupo === 17)
+                        .map((book) => (
+                            <div className="card">
+                                <i className="fa fa-long-arrow-left"></i>
+                                <div className="image">
+                                    <img src="https://imgur.com/ZpVouSq.png" />
+
+                                </div>
+                                <div className="text">
+                                    <h5>{book.autor}</h5>
+                                    <h3>{book.name}</h3>
+                                    <div className="price">
+                                        <h3>R${book.price}</h3>
+                                    </div>
+                                    <div className="description">
+                                        <h5>Descrição</h5>
+                                        <p>{book.description}</p>
+                                    </div>
+                                    <div className="last_section">
+                                        <button onClick={AddCart}>Adicionar ao carrinho</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+            : selectedItem === 'scifi' ? books
+            .filter((books) => books.grupo === 18)
+            .map((book) => (
+                <div className="card">
+                    <i className="fa fa-long-arrow-left"></i>
+                    <div className="image">
+                        <img src="https://imgur.com/ZpVouSq.png" />
+
+                    </div>
+                    <div className="text">
+                        <h5>{book.autor}</h5>
+                        <h3>{book.name}</h3>
+                        <div className="price">
+                            <h3>R${book.price}</h3>
+                        </div>
+                        <div className="description">
+                            <h5>Descrição</h5>
+                            <p>{book.description}</p>
+                        </div>
+                        <div className="last_section">
+                            <button onClick={AddCart}>Add to cart</button>
+
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <ul style={{width: '100%'}}>
-                        <li>bla bla</li>
-                    </ul>
+            )) : selectedItem === 'musica' ? books
+            .filter((books) => books.grupo === 19)
+            .map((book) => (
+                <div className="card">
+                    <i className="fa fa-long-arrow-left"></i>
+                    <div className="image">
+                        <img src="https://imgur.com/ZpVouSq.png" />
+
+                    </div>
+                    <div className="text">
+                        <h5>{book.autor}</h5>
+                        <h3>{book.name}</h3>
+                        <div className="price">
+                            <h3>R${book.price}</h3>
+                        </div>
+                        <div className="description">
+                            <h5>Descrição</h5>
+                            <p>{book.description}</p>
+                        </div>
+                        <div className="last_section">
+                            <button onClick={AddCart}>Add to cart</button>
+
+                        </div>
+                    </div>
+                </div>
+            )) : selectedItem === 'biografia' ? books
+            .filter((books) => books.grupo === 20)
+            .map((book) => (
+                <div className="card">
+                    <i className="fa fa-long-arrow-left"></i>
+                    <div className="image">
+                        <img src="https://imgur.com/ZpVouSq.png" />
+
+                    </div>
+                    <div className="text">
+                        <h5>{book.autor}</h5>
+                        <h3>{book.name}</h3>
+                        <div className="price">
+                            <h3>R${book.price}</h3>
+                        </div>
+                        <div className="description">
+                            <h5>Descrição</h5>
+                            <p>{book.description}</p>
+                        </div>
+                        <div className="last_section">
+                            <button onClick={AddCart}>Add to cart</button>
+
+                        </div>
+                    </div>
+                </div>
+            )) : null}
+
+
                 </div>
             </div>
-        </section>
+        </div>
 
 
     )
