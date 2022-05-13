@@ -19,7 +19,7 @@
     margin-left: 50px;
     margin-top: 50px;
 }
-.image{display:flex;justify-content:center;align-items:center}.image img{margin-top:10px;width:150px}
+.image{display:flex;justify-content:center;align-items:center; margin-bottom: 40px;}.image img{margin-top:10px;width:150px}
 .rating_reviews{display:flex}.rating_reviews p{font-size:12px;margin-top:8px;margin-left:10px;font-weight:600}
 .rating_reviews p:nth-child(2){color:red}.rating{display: flex;flex-direction: row-reverse;float: left}
 .rating>input{display: none}

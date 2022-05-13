@@ -56,7 +56,7 @@ function ListProducts() {
     }
 
 
-    console.log(selectedItem);
+    console.log(books);
 
     const setNewSelectItem = (event, selectedItem) => {
         setSelectItem(selectedItem)

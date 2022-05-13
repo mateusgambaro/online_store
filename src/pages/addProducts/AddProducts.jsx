@@ -36,7 +36,8 @@ function AddProducts() {
             price: data.preco,
             description: data.descricao,
             autor: data.autor,
-            grupo: data.categoria
+            grupo: data.categoria,
+            img: data.imagem    
         }
 
         await axios.post('https://online-store-backend-voll.herokuapp.com/insertProducts', dataObj)
@@ -102,6 +103,18 @@ function AddProducts() {
                                     fullWidth
                                 />
 
+                            </div>
+
+                            <div className="box">
+                                <TextField
+                                    {...register("imagem")}
+                                    placeholder='Url da imagem'
+                                    //onChange={ (e) => setData(e.target.value)}
+                                    label="Imagem" variant="outlined"
+                                    size="medium"
+                                    type="text"
+                                    fullWidth
+                                />
                             </div>
 
                             <div className="box">
