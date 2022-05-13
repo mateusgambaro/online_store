@@ -12,8 +12,6 @@ import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 
 function ListProducts() {
 
-
-
     const [selectedItem, setSelectItem] = useState('item 5')
 
     console.log(selectedItem);
