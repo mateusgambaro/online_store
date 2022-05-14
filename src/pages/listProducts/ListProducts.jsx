@@ -16,26 +16,40 @@ function ListProducts() {
     const [selectedItem, setSelectItem] = useState('filosofia')
     const [addcart, setaddcart] = useState(1);
 
-    const AddCart = (   ) => {
-        if (addcart < 10) { setaddcart(addcart + 1); }
+    const AddCart = async (bookPrice) => {
+        
+        let novoSaldo = users[0]?.saldo - bookPrice
+        
+        if(novoSaldo < 0) {
+            novoSaldo = 0
+        }
+
+        const itemCopy = Array.from(users)
+
+        itemCopy[0].saldo = novoSaldo
+
+        let dataObj = {
+            saldo: novoSaldo
+        }
+        await axios.put(`https://online-store-backend-voll.herokuapp.com/updateUser/${users[0].id}`, dataObj)
     }; 
     
-    const DecBag = () => {
-        if (addcart >= 1) {
-            setaddcart(addcart - 1);
-        }
-    };
 
     const [users, setUsers] = useState([]);
     const [books, setBooks] = useState([]);
     const [groups, setGroups] = useState([]);
 
    console.log('cart', addcart)
+   console.log('cart', users)
+
 
 
 
     useEffect(() => {
         getUsers();
+        getGroups();
+        getBooks();
+
     }, []);
 
     const getUsers = async () => {
@@ -56,8 +70,6 @@ function ListProducts() {
     }
 
 
-    console.log(books);
-
     const setNewSelectItem = (event, selectedItem) => {
         setSelectItem(selectedItem)
     }
@@ -70,8 +82,8 @@ function ListProducts() {
                     <Typography variant="h6" color="inherit" component="div">
                         Livros
                     </Typography>
-                    <FontAwesomeIcon icon={faMoneyBill} style={{ display: 'flex', justifyContent: 'space-around', width: '20px', marginLeft: 'auto' }} />R$200
-                    <FontAwesomeIcon icon={faUser} style={{ display: 'flex', justifyContent: 'flex-end', width: '20px', marginLeft: 'auto' }} /> &nbsp; Mateus
+                    <FontAwesomeIcon icon={faMoneyBill} style={{ display: 'flex', justifyContent: 'space-around', width: '20px', marginLeft: 'auto' }} /> &nbsp;<h4>{users[0]?.saldo}</h4>
+                    <FontAwesomeIcon icon={faUser} style={{ display: 'flex', justifyContent: 'flex-end', width: '20px', marginLeft: 'auto' }} /> &nbsp; <h4>{users[0]?.email}</h4>
                 </Toolbar>
             </AppBar>
             <div style={{
@@ -79,13 +91,14 @@ function ListProducts() {
                 flexDirection: 'row',
                 alignItems: 'flex-start',
                 justifyContent: 'flex-start',
-                width: '25%', height: '100%',
-                marginRight: 'auto'
+                width: '100%', height: '100%',
+                marginRight: 'auto',
+                backgroundColor: 'white'
             }}>
                 <VerticalNavigation
                     selectedItem={selectedItem}
                     onSelect={setNewSelectItem}
-                    style={{ position: 'fixed' }}
+                    style={{ position: 'fixed',backgroundColor: 'white', height: '100%', marginRight: '20px' }}
                 >
                     <VerticalSection>
                         <VerticalItem
@@ -142,7 +155,7 @@ function ListProducts() {
                                         <p>{book.description}</p>
                                     </div>
                                     <div className="last_section">
-                                        <button onClick={AddCart}>Adicionar ao carrinho</button>
+                                        <button onClick={() => AddCart(book.price)}>Adicionar ao carrinho</button>
 
                                     </div>
                                 </div>
@@ -168,7 +181,7 @@ function ListProducts() {
                             <p>{book.description}</p>
                         </div>
                         <div className="last_section">
-                            <button onClick={AddCart}>Add to cart</button>
+                            <button onClick={() => AddCart(book.price)}>Adicionar ao carrinho</button>
 
                         </div>
                     </div>
@@ -193,7 +206,7 @@ function ListProducts() {
                             <p>{book.description}</p>
                         </div>
                         <div className="last_section">
-                            <button onClick={AddCart}>Add to cart</button>
+                            <button onClick={() => () => AddCart(book.price)}>Adicionar ao carrinho</button>
 
                         </div>
                     </div>
@@ -218,7 +231,7 @@ function ListProducts() {
                             <p>{book.description}</p>
                         </div>
                         <div className="last_section">
-                            <button onClick={AddCart}>Add to cart</button>
+                            <button onClick={() => AddCart(book.price)}>Adicionar ao carrinho</button>
 
                         </div>
                     </div>

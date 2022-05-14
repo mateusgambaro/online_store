@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField';
@@ -7,6 +7,7 @@ import wallet from '../../images/wallet.jpg';
 
 function Login () {
 
+    let navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -30,13 +31,19 @@ function Login () {
         password: password,
     }
 
+    if(email === 'mateus@hotmail.com' && password === '123456789') {
+      navigate('/add')
+    } else {
+      navigate('/products')
+    }
+
     console.log('LOGIN', loginObj);
   }
 
   console.log(email)
   console.log(password)
   console.log(disabled)
-  
+
 
 
     return (
@@ -59,15 +66,11 @@ function Login () {
           onChange={ (event) => {setPassword(event.target.value); handleDisabled()} }
           />
 
-        <Link
-          style={{textDecoration: 'none'}}
-          to="/add"
-        >
          <Button variant="Entrar"
             disabled={ disabled }
             onClick={ () => handleSubmitLogin() }
             >Entrar</Button>
-        </Link>
+
         </div>
         <div className="login-side">
           <img src={wallet} alt="img-wallet"></img>
