@@ -4,7 +4,7 @@ import './ListProducts.css';
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField';
 import { VerticalNavigation, VerticalSection, VerticalItem } from 'react-rainbow-components';
-import { faClock, faCog, faFolderOpen, faBook, faReceipt, faUser, faHatWizard, faGlasses, faBrain, faUserAstronaut, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faCog, faFolderOpen, faBook, faReceipt, faUser, faHatWizard, faGlasses, faBrain, faUserAstronaut, faMoneyBill, faGuitar } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -104,22 +104,24 @@ function ListProducts() {
                         <VerticalItem
                             name="filosofia"
                             label="Filosofia"
-                            icon={<FontAwesomeIcon icon={faHatWizard} />}
+                            icon={<FontAwesomeIcon icon={faBrain} />}
+
                         />
                         <VerticalItem
                             name="scifi"
                             label="Ficção Científica"
-                            icon={<FontAwesomeIcon icon={faGlasses} />}
+                            icon={<FontAwesomeIcon icon={faHatWizard} />}
                         />
                         <VerticalItem
                             name="musica"
                             label="Música"
-                            icon={<FontAwesomeIcon icon={faBrain} />}
+                            icon={<FontAwesomeIcon icon={faGuitar} />}
                         />
                         <VerticalItem
                             name="biografia"
                             label="Biografia"
-                            icon={<FontAwesomeIcon icon={faUserAstronaut} />}
+                            icon={<FontAwesomeIcon icon={faGlasses} />}
+
                         />
                     </VerticalSection>
                 </VerticalNavigation>
