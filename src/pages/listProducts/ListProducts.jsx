@@ -26,12 +26,12 @@ function ListProducts() {
 
         const itemCopy = Array.from(users)
 
-        itemCopy[0].saldo = novoSaldo
+        itemCopy[1].saldo = novoSaldo
 
         let dataObj = {
             saldo: novoSaldo
         }
-        await axios.put(`https://online-store-backend-voll.herokuapp.com/updateUser/${users[0].id}`, dataObj)
+        await axios.put(`https://online-store-backend-voll.herokuapp.com/updateUser/${users[1].id}`, dataObj)
     }; 
     
 
@@ -82,8 +82,8 @@ function ListProducts() {
                     <Typography variant="h6" color="inherit" component="div">
                         Livros
                     </Typography>
-                    <FontAwesomeIcon icon={faMoneyBill} style={{ display: 'flex', justifyContent: 'space-around', width: '20px', marginLeft: 'auto' }} /> &nbsp;<h4>{users[0]?.saldo}</h4>
-                    <FontAwesomeIcon icon={faUser} style={{ display: 'flex', justifyContent: 'flex-end', width: '20px', marginLeft: 'auto' }} /> &nbsp; <h4>{users[0]?.email}</h4>
+                    <FontAwesomeIcon icon={faMoneyBill} style={{ display: 'flex', justifyContent: 'space-around', width: '20px', marginLeft: 'auto' }} /> &nbsp;<h4>{users[1]?.saldo}</h4>
+                    <FontAwesomeIcon icon={faUser} style={{ display: 'flex', justifyContent: 'flex-end', width: '20px', marginLeft: 'auto' }} /> &nbsp; <h4>{users[1]?.email}</h4>
                 </Toolbar>
             </AppBar>
             <div style={{
