@@ -60,6 +60,7 @@ function Login () {
           />
 
         <Link
+          style={{textDecoration: 'none'}}
           to="/add"
         >
          <Button variant="Entrar"

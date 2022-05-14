@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './AddProducts.css';
 import TextField from '@mui/material/TextField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Divider from '@mui/material/Divider';
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 import { faClock, faCog, faFolderOpen, faBook, faReceipt, faUser, faHatWizard, faGlasses, faBrain, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { useForm } from "react-hook-form";
@@ -55,15 +56,35 @@ function AddProducts() {
                 </Toolbar>
             </AppBar>
 
-            <Container style={{width: '25%', height: '100%', marginRight: '70%'}}>
-                <Box style={{width: '25%', height: '25%'}}>
-                    Saldo
-                <div>
-                <h1>Mateus</h1>
+            <Container style={{display: 'flex', width: '75%', height: '100%', justifyContent: 'center', marginTop: '5%'}}>
+                <Box style={{width: '25%',
+                 height: '100%',
+                  display: 'flex',
+                   flexDirection: 'column',
+                    justifyContent: 'center',
+                     alignItems: 'center',
+                      marginTop: '20px',
+                       alignContent: 'center',
+                       
+                       }}>
+                    <h1>Saldo Moedas</h1>
+                <div style={{width: '100%',
+                 height: '100%',
+                  border: '1px solid grey',
+                   borderRadius: '5px',
+                   display: 'flex',
+                   justifyContent: 'center',
+                   flexDirection: 'column',
+                   alignItems: 'center'
+                   }}>
+                <h4>Mateus</h4>
+                <p>R$200</p>
+                <hr/>
+                <h4>Mateus</h4>
                 <p>R$200</p>
                 </div>
                 </Box>
-            </Container>
+    
 
             <Container maxWidth="sm">
 
@@ -198,6 +219,18 @@ function AddProducts() {
 
                             <div className="box">
                                 <TextField
+                                    {...register("imagem")}
+                                    placeholder='Url da imagem'
+                                    //onChange={ (e) => setData(e.target.value)}
+                                    label="Imagem" variant="outlined"
+                                    size="medium"
+                                    type="text"
+                                    fullWidth
+                                />
+                            </div>
+
+                            <div className="box">
+                                <TextField
                                     {...register("categoria")}
                                     placeholder='Categoria'
                                     //onChange={ (e) => setName(e.target.value) }
@@ -272,6 +305,18 @@ function AddProducts() {
                                     fullWidth
                                 />
 
+                            </div>
+
+                            <div className="box">
+                                <TextField
+                                    {...register("imagem")}
+                                    placeholder='Url da imagem'
+                                    //onChange={ (e) => setData(e.target.value)}
+                                    label="Imagem" variant="outlined"
+                                    size="medium"
+                                    type="text"
+                                    fullWidth
+                                />
                             </div>
 
                             <div className="box">
@@ -354,6 +399,18 @@ function AddProducts() {
 
                             <div className="box">
                                 <TextField
+                                    {...register("imagem")}
+                                    placeholder='Url da imagem'
+                                    //onChange={ (e) => setData(e.target.value)}
+                                    label="Imagem" variant="outlined"
+                                    size="medium"
+                                    type="text"
+                                    fullWidth
+                                />
+                            </div>
+
+                            <div className="box">
+                                <TextField
                                     {...register("categoria")}
                                     placeholder='Categoria'
                                     //onChange={ (e) => setName(e.target.value) }
@@ -405,6 +462,7 @@ function AddProducts() {
                 </TabContext>
 
 
+            </Container>
             </Container>
         </section>
     )
