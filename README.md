@@ -1,5 +1,5 @@
 
-# :shopping: Online Store
+# :shopping: Online Store | FRONTEND
 
 ## :globe_with_meridians: NETLIFY URL
 https://dulcet-sopapillas-540eb7.netlify.app/
