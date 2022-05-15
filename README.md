@@ -1,6 +1,9 @@
 
 # :shopping: Online Store
 
+## :globe_with_meridians: NETLIFY URL
+https://dulcet-sopapillas-540eb7.netlify.app/
+
 Desenvolvimento de uma aplicação de cadastro e venda de livros, e controle de moedas dos usuários da plataforma.
 
 Os livros estão separados por categorias que mais me interessam e que fazem diferança no meu dia :)
@@ -32,11 +35,11 @@ Senha: 13122100
 ## :closed_lock_with_key: Página de Login
 <img src="images/login.png" width="500px"/>
 
-## :books: Página de Cadastro de livros e controle de moedas
+## :books: Página de Cadastro de livros e controle de moedas | path "/add"
 <img src="images/cadastro.png" width="500px"/>
 
 ## :heavy_check_mark: Livro Cadastrado com sucesso!
 <img src="images/postMessage.png" width="500px"/>
 
-## :shopping_cart: Página com lista de livros dividida por categoria (sidebar)
+## :shopping_cart: Página com lista de livros dividida por categoria (sidebar) | path "/products"
 <img src="images/books.png" width="500px"/>
