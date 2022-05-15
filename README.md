@@ -27,3 +27,16 @@ Senha: 13122100
 * [React Rainbow](https://react-rainbow.io/) 
 * [FontAwesome](https://fontawesome.com/)
 * [Netlify](https://www.netlify.com/)
+
+
+## :closed_lock_with_key: Página de Login
+<img src="images/login.png" width="500px"/>
+
+## :books: Página de Cadastro de livros e controle de moedas
+<img src="images/cadastro.png" width="500px"/>
+
+## :heavy_check_mark: Livro Cadastrado com sucesso!
+<img src="images/postMessage.png" width="500px"/>
+
+## :shopping_cart: Página com lista de livros dividida por categoria (sidebar)
+<img src="images/books.png" width="500px"/>
